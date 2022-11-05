@@ -36,11 +36,8 @@ namespace Bot
                 steer = 1;
             else
                 steer = -1;
-            
-            // Examples of rendering in the game
-            Renderer.DrawString3D("Hello", Color.Black, ballLocation, 3, 3);
-            Renderer.DrawString3D(steer > 0 ? "Right" : "Left", Color.Aqua, carLocation, 3, 3);
-            Renderer.DrawLine3D(Color.Red, carLocation, ballLocation);
+
+            Rendering(ballLocation, carLocation, carRotation, steer);
 
             // This controller will contain all the inputs that we want the bot to perform.
             return new Controller
@@ -56,5 +53,20 @@ namespace Bot
         // use processed versions of those objects instead.
         internal new FieldInfo GetFieldInfo() => new FieldInfo(base.GetFieldInfo());
         internal new BallPrediction GetBallPrediction() => new BallPrediction(base.GetBallPrediction());
+
+
+
+
+        //check possession of ball 
+        
+        public void Rendering(Vector3 ballLocation, Vector3 carLocation, Orientation carRotation, float steer)
+        { 
+        // Examples of rendering in the game
+            Renderer.DrawString3D("Hello", Color.Black, ballLocation, 3, 3);
+            Renderer.DrawString3D(steer > 0 ? "Right" : "Left", Color.Aqua, carLocation, 3, 3);
+            Renderer.DrawLine3D(Color.Red, carLocation, ballLocation);
+            
+        }
+
     }
 }

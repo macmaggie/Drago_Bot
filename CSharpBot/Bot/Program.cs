@@ -6,7 +6,7 @@ namespace Bot
     {
         static void Main(string[] args)
         {
-            int port;
+            int port = 23233;
             try
             {
                 // Read the port from the first argument
@@ -26,7 +26,7 @@ namespace Bot
                 // Click the configuration dropdown to the left of the Run and Debug buttons (top right of the window),
                 // choose Edit Configurations -- there is a box for "Program arguments", enter the port there.
 
-                // Example of a port: 45031
+                // 45031
 
 
                 var currentColor = Console.ForegroundColor;
