@@ -30,22 +30,25 @@ namespace Bot
             // Decide which way to steer in order to get to the ball.
             // If the ball is to our left, we steer left. Otherwise we steer right.
             float steer;
-            if (ballRelativeLocation.Y > 0)
+            if (ballRelativeLocation.Y == 0)
+                steer = 0;
+            else if (ballRelativeLocation.Y > 0)
                 steer = 1;
             else
                 steer = -1;
             
             // Examples of rendering in the game
-            Renderer.DrawString3D("Ball", Color.Black, ballLocation, 3, 3);
+            Renderer.DrawString3D("Hello", Color.Black, ballLocation, 3, 3);
             Renderer.DrawString3D(steer > 0 ? "Right" : "Left", Color.Aqua, carLocation, 3, 3);
             Renderer.DrawLine3D(Color.Red, carLocation, ballLocation);
-            
+
             // This controller will contain all the inputs that we want the bot to perform.
             return new Controller
             {
                 // Set the throttle to 1 so the bot can move.
                 Throttle = 1,
-                Steer = steer
+                Steer = steer,
+                Boost = true
             };
         }
         
